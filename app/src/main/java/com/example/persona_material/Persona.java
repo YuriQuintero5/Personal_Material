@@ -49,4 +49,8 @@ public class Persona {
         Datos.guardar(this);
     }
 
+    public void eliminar(){
+        Datos.eliminar(this);
+    }
+
 }
