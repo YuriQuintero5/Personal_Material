@@ -17,7 +17,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdaptadorPersona.OnPersonaClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         lstPersonas = findViewById(R.id.lstPersonas);
         personas = Datos.obtener();
         llm = new LinearLayoutManager(this);
-        adapter = new AdaptadorPersona(personas);
+        adapter = new AdaptadorPersona(personas, this);
 
         llm.setOrientation(RecyclerView.VERTICAL);
         lstPersonas.setLayoutManager(llm);
@@ -45,11 +45,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void agregar(View v) {
-       Intent i;
-       i = new Intent(MainActivity.this, AgregarPersonas.class);
-       startActivity(i);
+       Intent intent;
+       intent = new Intent(MainActivity.this, AgregarPersonas.class);
+       startActivity(intent);
        finish();
 
 
+    }
+
+    @Override
+    public void onPersonaClick(Persona p) {
+        Intent  intent;
+        Bundle  bundle;
+
+        bundle = new Bundle();
+        bundle.putString("cedula", p.getCedula());
+        bundle.putString("nombre", p.getNombre());
+        bundle.putString("apellido", p.getApellido());
+        bundle.putInt("foto", p.getFoto());
+
+        intent = new Intent(MainActivity.this, DetallePersona.class);
+        intent.putExtra("datos",bundle);
+        startActivity(intent);
+        finish();
     }
 }
