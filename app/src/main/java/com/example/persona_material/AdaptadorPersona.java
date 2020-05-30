@@ -52,9 +52,9 @@ public class AdaptadorPersona extends RecyclerView.Adapter<AdaptadorPersona.Pers
             super(itemView);
             v = itemView;
             foto = v.findViewById(R.id.imgFoto);
-            cedula = v.findViewById(R.id.txtCedula);
-            nombre = v.findViewById(R.id.txtNombre);
-            apellido = v.findViewById(R.id.txtApellido);
+            cedula = v.findViewById(R.id.lblCedula);
+            nombre = v.findViewById(R.id.lblNombre);
+            apellido = v.findViewById(R.id.lblApellido);
         }
     }
 }
