@@ -20,7 +20,7 @@ public class Persona {
         return id;
     }
 
-    
+
 
     public Persona (String Cedula, String Nombre, String Apellido, int Foto, String id){
         this.Cedula = Cedula;
