@@ -14,13 +14,13 @@ public class Persona {
         this.Apellido = Apellido;
         this.Foto = Foto;
     }
-
-
     public String getId() {
         return id;
     }
 
+    public Persona(){
 
+    }
 
     public Persona (String Cedula, String Nombre, String Apellido, int Foto, String id){
         this.Cedula = Cedula;
